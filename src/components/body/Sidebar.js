@@ -1,14 +1,10 @@
 
 import React, { Component } from 'react';
 
-const ViewPost = (props) => {
-
-    return(
+const ViewPost = props => (
         <div>
             View POsts
         </div>
-    );
-
-}
+);
 
 export default ViewPost;

@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
   console.log('ENV', argv.mode);
@@ -49,7 +50,15 @@ module.exports = (env, argv) => {
         test: /\.js$|\.css$|\.html$/,
         threshold: 10240,
         minRatio: 0.8
-      })
+      }),
+      new CopyWebpackPlugin(
+        [
+          {
+            from: './public/'
+          }
+        ],
+        { debug: 'info' }
+      ),
     ],
     devServer: {
       historyApiFallback: true,
